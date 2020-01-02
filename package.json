@@ -1,0 +1,39 @@
+{
+  "name": "dbdiagram",
+  "version": "1.0.0",
+  "description": "WYSIWYG (what you see is what you get) DB Diagram tool, based on JS Sequence Diagrams and Mermaid, to be used in conjuction with some sort of SQL generator script to create simple and clean DB diagrams.",
+  "main": "index.js",
+  "dependencies": {
+    "nunjucks": "^3.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test" : "echo \"Error: no test specified\" && exit 1"
+  },
+  "scripts": {
+    "build": "npx eleventy",
+    "full-build": "set CACHE_BUST=true && npx eleventy",
+    "serve": "npx eleventy --serve",
+    "clean": "del -rf _site",
+    "clear-cache": "npm cache clean --force && npm cache verify",
+    "favicon": "npx real-favicon generate \"./tools/favicon-generator.json\" \"./tools/faviconData.json\" \"./assets/images/icons/fav\"",
+    "build-and-run": "npx eleventy && npx eleventy --serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MudPunk/DBDiagram.git"
+  },
+  "keywords": [
+    "DB",
+    "SVG",
+    "Sequence",
+    "Diagram",
+    "SQL"
+  ],
+  "author": "Brian Nowak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MudPunk/DBDiagram/issues"
+  },
+  "homepage": "https://github.com/MudPunk/DBDiagram#readme"
+}
