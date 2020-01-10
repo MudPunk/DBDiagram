@@ -2,8 +2,11 @@ module.exports = function(eleventyConfig) {
 
     // static passthroughs - remap to root
     eleventyConfig.addPassthroughCopy("assets/images");
+    eleventyConfig.addPassthroughCopy("assets/scripts");
+    eleventyConfig.addPassthroughCopy("assets/styles");
 
     //add filters
+    eleventyConfig.addFilter("cssmin", require("./plugins/clean-css.js") );
     eleventyConfig.addFilter("findByName", (arr, findValue) => arr.find(a => a.name === findValue));
     eleventyConfig.addFilter("dateDisplay", require("./plugins/dates.js") );
     eleventyConfig.addFilter("contentTags", tags => tags.filter(t => !["post","draft"].includes(t)));

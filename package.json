@@ -4,6 +4,8 @@
   "description": "WYSIWYG (what you see is what you get) DB Diagram tool, based on JS Sequence Diagrams and Mermaid, to be used in conjuction with some sort of SQL generator script to create simple and clean DB diagrams.",
   "main": "index.js",
   "dependencies": {
+    "@11ty/eleventy": "^0.10.0-beta.1",
+    "clean-css": "^4.2.1",
     "markdown-it": "^10.0.0",
     "nunjucks": "^3.2.0",
     "terser": "^4.6.1"

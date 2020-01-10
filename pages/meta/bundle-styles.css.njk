@@ -11,5 +11,5 @@ permalink: "assets/styles/bundle.css"
 {% endset %}
 
 {# feed it through our cssmin filter to minify #}
-{# {{ css | cssmin | safe }} #}
+{{ css | cssmin | safe }}
 {# {% tweetStyles %} #}
