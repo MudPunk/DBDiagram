@@ -1,0 +1,33 @@
+/* images */
+
+img {
+    max-width: 100%;
+    border: 5px solid white;
+    box-shadow: 1px 1px 2px 1px #c6c6c6, 0px 0px 4px 1px #c6c6c6;
+    border-radius: 3px;
+    vertical-align: middle;
+}
+
+svg {
+    max-width: 100%;
+}
+
+.content a img {
+    border: none;
+    box-shadow: none;
+}
+
+.content a svg {
+    width: 20px;
+    height: 20px;
+}
+
+img.fa {
+    box-shadow: none;
+    border: none;
+    height: 20px;
+}
+
+.banner-dark img.fa {
+    filter: invert(1);
+}

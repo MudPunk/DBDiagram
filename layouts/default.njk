@@ -2,8 +2,42 @@
 <html lang="en">
   <head>
     <title>{{ title }}</title>
+
+    <style type="text/css">
+        /* minimal style sheet if something goes wrong */
+        img[src$=".svg"], svg {max-width: 55px;}
+        {{ collections.bundles.style.templateContent | safe }}
+    </style>
+
   </head>
   <body>
+
+    {# scripts to run asap #}
+    {% set js %} {% include "assets/scripts/init.js" %}{% endset %}
+    <script type="text/javascript">{{ js | jsmin | safe }}</script>
+
+
+    <header id="header" class="header">
+        <button class="hamburger nav-toggle" type="button" id="navToggleBody" 
+                aria-haspopup="true" aria-expanded="false" aria-label="Toggle side navbar">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </button>
+
+        <a href="/" aria-label="Home Page" class="brand" >
+            {% include "assets/images/volleyball.svg" %}
+            <span class="site-title">
+                {% set site_title_word = title_word or (renderData and renderData.title_word) %}
+                <span class="word">{{site_title_word}}</span> 
+                <span class="doc">DOC</span> 
+                <span class="gov">gov</span>
+            </span>
+        </a>
+
+
+    </header>
+      
     {{ content | safe }}
   </body>
 </html>

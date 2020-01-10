@@ -60,7 +60,7 @@ function validateCategory(collection, categoryTagName,  categoryKey, categoryDat
     if (missingCategories.length) {
         const chalk = require('chalk');
         var files = missingCategories.map(a => `${filePath}${a}.md`);
-        console.warn(chalk.yellow(`Missing ${postDataFieldName} pages for:\n* ${missingCategories.join("\n* ")}\n`));
+        console.warn(chalk.yellow(`Missing ${categoryTagName} pages for:\n* ${missingCategories.join("\n* ")}\n`));
         console.warn(chalk.yellow(`To fix, create the following files:\n${files.join("\n")}\n`));
     }
 

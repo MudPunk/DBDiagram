@@ -5,19 +5,17 @@
   "main": "index.js",
   "dependencies": {
     "markdown-it": "^10.0.0",
-    "nunjucks": "^3.2.0"
+    "nunjucks": "^3.2.0",
+    "terser": "^4.6.1"
   },
   "devDependencies": {
     "chalk": "^2.4.2"
   },
   "scripts": {
-    "build": "npx eleventy",
-    "full-build": "set CACHE_BUST=true && npx eleventy",
-    "serve": "npx eleventy --serve",
-    "clean": "del -rf _site",
-    "clear-cache": "npm cache clean --force && npm cache verify",
-    "favicon": "npx real-favicon generate \"./tools/favicon-generator.json\" \"./tools/faviconData.json\" \"./assets/images/icons/fav\"",
-    "build-and-run": "npx eleventy && npx eleventy --serve"
+    "build": "npx cross-env ELEVENTY_ENV=prod npx @11ty/eleventy",
+    "serve": "npx cross-env ELEVENTY_ENV=dev  npx @11ty/eleventy --serve",
+    "clean": "npx rimraf _site",
+    "clear-cache": "npx rimraf tweets"
   },
   "repository": {
     "type": "git",

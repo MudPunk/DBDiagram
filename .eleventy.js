@@ -7,10 +7,19 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addFilter("findByName", (arr, findValue) => arr.find(a => a.name === findValue));
     eleventyConfig.addFilter("dateDisplay", require("./plugins/dates.js") );
     eleventyConfig.addFilter("contentTags", tags => tags.filter(t => !["post","draft"].includes(t)));
-    
+    eleventyConfig.addFilter("isPostType", tags => tags && tags.some(t => ["post","draft"].includes(t)));
+    eleventyConfig.addFilter("jsmin", require("./plugins/clean-js.js") );
+
     // custom collections
     let builder = require("./plugins/builder.js")
     eleventyConfig.addCollection("authors", col => builder(col, "author", "name", "summary", "authors", "./authors/"));
+
+    // bundle collection
+    eleventyConfig.addCollection("bundles", col => {
+        let script = col.getFilteredByGlob("**/meta/bundle-scripts.js.njk")[0]
+        let style = col.getFilteredByGlob("**/meta/bundle-styles.css.njk")[0]
+        return { script, style }
+    });
 
     // configure syntax highlighting
     let md = require("./plugins/customize-markdown.js")()
