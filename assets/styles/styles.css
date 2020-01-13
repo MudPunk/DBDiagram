@@ -682,8 +682,8 @@ header.header {
 }
 
 .brand svg:hover,
-.brand .site-title:hover .doc,
-.brand .site-title:hover .gov {
+.brand .site-title:hover .gmvb,
+.brand .site-title:hover .vball {
     color: hsla(148, 97%, 33%, 1);
 }
 
@@ -698,7 +698,7 @@ header.header {
     margin-left: 1rem;
 }
 
-.site-title .doc {
+.site-title .gmvb {
     color: #5b9676;
     font-size: 0.7em;
     transform: scaleX(0.8);
