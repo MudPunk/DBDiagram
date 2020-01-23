@@ -13,7 +13,8 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addFilter("isPostType", tags => tags && tags.some(t => ["post","draft"].includes(t)));
     eleventyConfig.addFilter("jsmin", require("./plugins/clean-js.js") );
     eleventyConfig.addFilter("sortByPostCount", arr => arr.sort((a,b) => (a.posts.length < b.posts.length ? 1 : -1)));
-
+    eleventyConfig.addFilter("take", (array, n) => array.slice(0,n));
+    
     // custom collections
     let builder = require("./plugins/builder.js")
     eleventyConfig.addCollection("authors", col => builder(col, "author", "name", "summary", "authors", "./pages/authors/"));
