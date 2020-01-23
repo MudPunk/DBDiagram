@@ -10,13 +10,7 @@
     </style>
 
   </head>
-<<<<<<< HEAD
-
-
-  <body>
-=======
 <body class="page no-js page-loading nav-closed {{pageClass}} {% if displayTOC %} toc-layout {% endif %}">
->>>>>>> ce84bdc2f793b84115fea8962d101f5f759fc1b9
 
     {# scripts to run asap #}
     {% set js %} {% include "assets/scripts/init.js" %}{% endset %}
@@ -49,5 +43,17 @@
         {{ content | safe }}
 
     </main>
+
+    {% include "_partials/sidenav.njk" %}
+
+    <script type="text/javascript">
+        {{ collections.bundles.script.templateContent | safe }}
+
+        {% if pageClass and 'search' in pageClass %}
+            {% set searchJs %}{% include "assets/scripts/search.js" %}{% endset %}
+            {{ searchJs | jsmin | safe }}
+        {% endif %}
+    </script>
+    
   </body>
 </html>

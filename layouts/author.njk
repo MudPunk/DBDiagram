@@ -5,13 +5,48 @@ layout: default.njk
 
 <h2><a href="/authors/"> {% include "assets/images/icons/fa/arrow-left.svg" %} All Authors</a></h2>
 
-<h1 class="page-title">{{ title }}</h1>
+
+<div class="author-header">
+
+
+    {% if profile %}
+        <img src="{{profile}}" alt="Profile picture for {{name}}" class="profile">
+    {% endif %}
+
+    <div class="author-info">
+
+        <h1 class="page-title">{{ full_name or name }}</h1>
+
+        <ul class="author-links">
+            {% if github %}
+                <li><a href="{{github}}" class="github">
+                    {% include "assets/images/icons/fa/github.svg" %} 
+                    {{ github | lastDir }}
+                </a></li>
+            {% endif %}
+            {% if stackoverflow %}
+                <li><a href="{{stackoverflow}}" class="stack-overflow">
+                    {% include "assets/images/icons/fa/stack-overflow.svg" %} 
+                    {{ stackoverflow | lastDir }}
+                </a></li>
+            {% endif %}
+            {% if twitter %}
+                <li><a href="{{twitter}}" class="twitter">
+                    {% include "assets/images/icons/fa/twitter.svg" %} 
+                    @{{ twitter | lastDir }}
+                </a></li>
+            {% endif %}
+        </ul>
+
+    </div>
+</div>
 
 {{ content | safe }}
 
+<hr class="my-2"/>
+
+<h2 class="post-title mt-0">Posts from {{ name }}</h2>
+
 {% set author = collections.authors | findByName(name) %}
 {% set postList = author.posts %}
-<!--{ 
-    % //include "_partials/postList.njk" %
-    }-->
-    
+{% include "_partials/postList.njk" %}

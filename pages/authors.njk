@@ -1,0 +1,18 @@
+---
+layout: default.njk
+title_word: Authors
+title: All Authors
+permalink: "authors/index.html"
+---
+
+<h1 class="page-title">{{title}}</h1>
+
+<ol class="category-list category-authors list-unstyled">
+  {% for author in collections.authors | sortByPostCount %}
+    <li class="category-item">
+      <a href="{{author.url}}" class="category-name">{{ author.name }}</a>
+      <span class="category-count">× {{author.posts.length }}</span>
+      <div class="category-description">{{ author.summary }}</div>
+    </li>
+  {% endfor %}
+</ol>
